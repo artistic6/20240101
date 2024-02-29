@@ -20,6 +20,8 @@ $outtext = "<?php\n\n";
 $outtext .= "return [\n";
 
 $totalBets = 0;
+$totalWinners = 0;
+$totalHistoric = 0;
 
 for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(!isset($allRacesOdds[$raceNumber])) continue;
@@ -54,6 +56,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $win1 = $raceData1['win'];
     $allTrioValues1 = [];
     $unionW = $win1;
+    $interW = $win1;
     foreach($favorites as $F){
         $raceDataF = $history[$raceNumber][$F];
         $winF = $raceDataF['win'];
@@ -66,7 +69,9 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         $winF = array_keys($qplsOdds);
         //$racetext .= "\t\t'Win values(Fav: $F)' =>  '" . implode(", ", $winF) . "',\n";
         $unionW = array_values(array_unique(array_merge($unionW, $winF)));
+        $interW = array_intersect($interW, $winF);
     }
+    $interW = array_intersect($interW, $favorites);
     //Sort  unionW by odds
     $qplsOdds = [];
     foreach($unionW as $iIndex){
@@ -103,25 +108,33 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     sort($winners);
     $set2 = array_slice($winners, 0, 7);
     $racetext .= "\t\t'winners' =>  '" . implode(", ", $winners) . "',//count: " . count($winners) . "\n";
+    $totalWinners += count($winners);
     $set3 = array_intersect($set1, $set2);
     $set4 = array_unique(array_values(array_merge(
         array_slice($set2, 0, 4),
         array_slice($set3, 0, 4)
     )));
     $set5 = array_intersect($set3, $set4);
+    $set5 = array_unique(array_values(array_merge($set5, $favorites)));
     sort($set5);
     $totalBets += count($set5);
     $racetext .= "\t\t'bet' =>  '" . implode(", ", $set5) . "',//count: " . count($set5) . "\n";
     $historic = array_unique(array_values(array_merge($historic, $set5)));
     sort($historic);
     $racetext .= "\t\t'historic' =>  '" . implode(", ", $historic) . "',//count: " . count($historic) . "\n";
+    $racetext .= "\t\t'WP' => '" . implode(", ", $interW) . "',\n";
+    $totalHistoric += count($historic);
     $racetext .= "\t],\n";
     unset($oldFavorites);
     unset($favorites);
     $outtext .= $racetext;
 }
 $totalBets = 10 * $totalBets;
-$outtext .= "\t//Total bets = $totalBets HKD\n";
+$totalHistoric = 10 * $totalHistoric;
+$totalWinners = 10 * $totalWinners;
+$outtext .= "\t//Total bets     = $totalBets HKD\n";
+$outtext .= "\t//Total historic = $totalHistoric HKD\n";
+$outtext .= "\t//Total winners  = $totalWinners HKD\n";
 $outtext .= "];\n";
 
 file_put_contents($outFile, $outtext);

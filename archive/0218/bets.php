@@ -10,6 +10,7 @@ return [
 		'winners' =>  '1, 3, 5, 6, 8, 9',//count: 6
 		'bet' =>  '1, 3, 5, 6, 9',//count: 5
 		'historic' =>  '1, 3, 5, 6, 9',//count: 5
+		'WP' => '',
 	],
 	'2' => [
 		/**
@@ -20,6 +21,7 @@ return [
 		'winners' =>  '3, 4, 5, 6, 7, 9',//count: 6
 		'bet' =>  '3, 4, 5, 6, 7, 9',//count: 6
 		'historic' =>  '3, 4, 5, 6, 7, 9',//count: 6
+		'WP' => '4',
 	],
 	'3' => [
 		/**
@@ -30,6 +32,7 @@ return [
 		'winners' =>  '2, 6, 7, 8, 9, 11',//count: 6
 		'bet' =>  '2, 6, 7, 8, 11',//count: 5
 		'historic' =>  '2, 6, 7, 8, 11',//count: 5
+		'WP' => '7',
 	],
 	'4' => [
 		/**
@@ -40,6 +43,7 @@ return [
 		'winners' =>  '1, 7, 8, 9, 11, 12',//count: 6
 		'bet' =>  '1, 7, 8, 9, 11, 12',//count: 6
 		'historic' =>  '1, 7, 8, 9, 11, 12',//count: 6
+		'WP' => '',
 	],
 	'5' => [
 		/**
@@ -48,8 +52,9 @@ return [
 		'Favorite'  =>  '7',
 		'favorites' => '3, 7',
 		'winners' =>  '1, 2, 7, 10, 12, 13',//count: 6
-		'bet' =>  '1, 2, 7, 10, 12',//count: 5
-		'historic' =>  '1, 2, 7, 10, 12',//count: 5
+		'bet' =>  '1, 2, 3, 7, 10, 12',//count: 6
+		'historic' =>  '1, 2, 3, 7, 10, 12',//count: 6
+		'WP' => '7',
 	],
 	'6' => [
 		/**
@@ -60,6 +65,7 @@ return [
 		'winners' =>  '1, 2, 6, 7, 10, 12',//count: 6
 		'bet' =>  '1, 2, 6, 7, 10, 12',//count: 6
 		'historic' =>  '1, 2, 6, 7, 10, 12',//count: 6
+		'WP' => '',
 	],
 	'7' => [
 		/**
@@ -70,6 +76,7 @@ return [
 		'winners' =>  '3, 5, 7, 8, 10, 11',//count: 6
 		'bet' =>  '3, 5, 7, 8, 10',//count: 5
 		'historic' =>  '3, 5, 7, 8, 10',//count: 5
+		'WP' => '',
 	],
 	'8' => [
 		/**
@@ -80,6 +87,7 @@ return [
 		'winners' =>  '3, 4, 5, 7, 9, 11',//count: 6
 		'bet' =>  '3, 4, 5, 7, 9, 11',//count: 6
 		'historic' =>  '3, 4, 5, 7, 9, 11',//count: 6
+		'WP' => '',
 	],
 	'9' => [
 		/**
@@ -90,6 +98,7 @@ return [
 		'winners' =>  '1, 3, 4, 6, 7, 9',//count: 6
 		'bet' =>  '1, 3, 4, 6, 7',//count: 5
 		'historic' =>  '1, 3, 4, 6, 7',//count: 5
+		'WP' => '',
 	],
 	'10' => [
 		/**
@@ -100,6 +109,9 @@ return [
 		'winners' =>  '2, 3, 4, 9, 12, 13',//count: 6
 		'bet' =>  '2, 3, 4, 9, 12',//count: 5
 		'historic' =>  '2, 3, 4, 9, 12',//count: 5
+		'WP' => '',
 	],
-	//Total bets = 540 HKD
+	//Total bets     = 550 HKD
+	//Total historic = 550 HKD
+	//Total winners  = 600 HKD
 ];
