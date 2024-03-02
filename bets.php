@@ -29,6 +29,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         if(isset($oldData[$raceNumber]['favorites'])) $oldFavorites = explode(", ", $oldData[$raceNumber]['favorites']);
         if(isset($oldData[$raceNumber]['winners'])) $oldWinners = explode(", ", $oldData[$raceNumber]['winners']);
         if(isset($oldData[$raceNumber]['historic'])) $oldHistoric = explode(", ", $oldData[$raceNumber]['historic']);
+        if(isset($oldData[$raceNumber]['WPs'])) $oldWPs = explode(", ", $oldData[$raceNumber]['WPs']);
     }
     if(isset($oldFavorites)) $favorites = $oldFavorites;
     else $favorites = [];
@@ -38,6 +39,9 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
 
     if(isset($oldHistoric)) $historic = $oldHistoric;
     else $historic = [];
+    
+    if(isset($oldWPs)) $WPs = $oldWPs;
+    else $WPs = [];
     
     $winsArray = $allRacesOdds[$raceNumber];
     asort($winsArray);
@@ -71,7 +75,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         $unionW = array_values(array_unique(array_merge($unionW, $winF)));
         $interW = array_intersect($interW, $winF);
     }
-    $interW = array_intersect($interW, $favorites);
+    
     //Sort  unionW by odds
     $qplsOdds = [];
     foreach($unionW as $iIndex){
@@ -122,11 +126,22 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $historic = array_unique(array_values(array_merge($historic, $set5)));
     sort($historic);
     $racetext .= "\t\t'historic' =>  '" . implode(", ", $historic) . "',//count: " . count($historic) . "\n";
-    $racetext .= "\t\t'WP' => '" . implode(", ", $interW) . "',\n";
+    $racetext .= "\t\t'inter' => '" . implode(", ", $interW) . "',\n";
+    $WP = array_intersect($interW, $favorites);
+    $racetext .= "\t\t'WP' => '" . implode(", ", $WP) . "',\n";
+    $WPs = array_unique(array_values(array_merge($WPs, $WP)));
+    $racetext .= "\t\t'WPs' => '" . implode(", ", $WPs) . "',\n";
     $totalHistoric += count($historic);
     $racetext .= "\t],\n";
     unset($oldFavorites);
+    unset($oldWinners);
+    unset($oldHistoric);
+    unset($oldWPs);
     unset($favorites);
+    unset($winners);
+    unset($historic);
+    unset($WPs);
+    unset($interW);
     $outtext .= $racetext;
 }
 $totalBets = 10 * $totalBets;
