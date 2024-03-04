@@ -8,6 +8,7 @@ return [
 		'Favorite'  =>  '9',
 		'favorites' => '2, 9',
 		'union' => '1, 2, 3, 5, 8',
+		'union current favorite' => '1, 3, 5, 8',
 	],
 	'2' => [
 		/**
@@ -32,6 +33,7 @@ return [
 		'Favorite'  =>  '4',
 		'favorites' => '1, 4, 11',
 		'union' => '1, 3, 4, 6, 9, 10, 11, 12',
+		'union current favorite' => '3, 4, 9, 11, 12',
 	],
 	'5' => [
 		/**
@@ -40,6 +42,7 @@ return [
 		'Favorite'  =>  '4',
 		'favorites' => '4',
 		'union' => '1, 2, 4, 7',
+		'union current favorite' => '1, 2, 4, 7',
 	],
 	'6' => [
 		/**
@@ -50,6 +53,7 @@ return [
 		'f1-f3' => '1, 3, 9',
 		'bet' => '1, 3, 9',
 		'union' => '1, 3, 6, 7, 8, 9, 11, 12, 13',
+		'union current favorite' => '1, 3, 9',
 	],
 	'7' => [
 		/**
@@ -66,6 +70,7 @@ return [
 		'Favorite'  =>  '8',
 		'favorites' => '5, 8, 10',
 		'union' => '2, 3, 4, 5, 7, 8, 9, 10, 11, 13',
+		'union current favorite' => '2, 3, 13',
 	],
 	'9' => [
 		/**
