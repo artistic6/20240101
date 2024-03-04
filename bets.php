@@ -82,6 +82,21 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         sort($union);
         $racetext .= "\t\t'union' => '" . implode(", ", $union) . "',\n";
     }
+    $unionCF = [];
+    foreach($runners as $horse){
+            if($favorite == $horse) continue;
+            if($favorite < $horse) 
+              $index = "f$favorite-f$horse";
+            else $index = "f$horse-f$favorite";
+            if(isset($threes[$raceNumber][$index])){
+                    $threeSet = $threes[$raceNumber][$index];
+                    $unionCF = array_values(array_unique(array_merge($unionCF, explode(", ", $threeSet))));
+                }
+    }
+    if(!empty($unionCF)){
+        sort($unionCF);
+        $racetext .= "\t\t'union current favorite' => '" . implode(", ", $unionCF) . "',\n";
+    }
     $racetext .= "\t],\n";
     unset($oldFavorites);
     unset($favorites);
