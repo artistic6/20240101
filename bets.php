@@ -43,7 +43,8 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $racetext .= "\t\t'favorites' => '" . implode(", ", $favorites) . "',\n";
     
     $bet = [];
-    $union = [];
+    $union = [];        
+    $firstSet1 = true;
     foreach($favorites as $one){
         foreach($favorites as $two){
             if($two > $one){
@@ -52,6 +53,11 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
                     $bet[] = $one;
                     $bet[] = $two;
                     $threeSet = $threes[$raceNumber][$index];
+                    if($firstSet1) {
+                        $firstSet1 = false;
+                        $inter1 = $threeSet;
+                    }
+                    else $inter1 = array_intersect($inter1, $threeSet);
                     $bet = array_values(array_unique(array_merge($bet, explode(", ", $threeSet))));
                     $racetext .= "\t\t'$index' => '" . $threeSet . "',\n";
                 }
@@ -75,6 +81,9 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(!empty($union)){
         sort($union);
         $racetext .= "\t\t'union' => '" . implode(", ", $union) . "',\n";
+    }
+    if(isset($inter1) && !empty($inter1)){
+        $racetext .= "\t\t'inter1' => '" . implode(", ", $inter1) . "',\n";
     }
     $unionCF = [];
     foreach($runners as $horse){
