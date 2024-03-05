@@ -84,6 +84,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
             else $index = "f$horse-f$favorite";
             if(isset($threes[$raceNumber][$index])){
                     $threeSet = $threes[$raceNumber][$index];
+                    $racetext .= "\t\t'$index' => '" . $threeSet . "',\n";
                     $unionCF = array_values(array_unique(array_merge($unionCF, explode(", ", $threeSet))));
                 }
     }
