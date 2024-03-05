@@ -38,12 +38,12 @@ return [
 		/**
 		Race 4
 		*/
-		'Favorite'  =>  '2',
+		'Favorite'  =>  '5',
 		'favorites' => '2, 5, 6',
 		'f5-f6' => '4, 10, 12',
 		'bet' => '4, 5, 6, 10, 12',
 		'union' => '4, 6, 7, 9, 10, 11, 12',
-		'union CF' => '7, 9, 12',
+		'union CF' => '4, 10, 12',
 	],
 	'5' => [
 		/**
@@ -58,9 +58,10 @@ return [
 		/**
 		Race 6
 		*/
-		'Favorite'  =>  '9',
+		'Favorite'  =>  '1',
 		'favorites' => '1, 5, 9',
 		'union' => '1, 3, 7, 9, 12',
+		'union CF' => '1, 3, 7, 9, 12',
 	],
 	'7' => [
 		/**
@@ -74,16 +75,18 @@ return [
 		/**
 		Race 8
 		*/
-		'Favorite'  =>  '8',
+		'Favorite'  =>  '3',
 		'favorites' => '3, 8',
 		'union' => '2, 3, 5, 6, 7, 12, 13',
-		'union CF' => '2, 3, 13',
+		'union CF' => '5, 6, 7, 12',
 	],
 	'9' => [
 		/**
 		Race 9
 		*/
-		'Favorite'  =>  '11',
-		'favorites' => '11',
+		'Favorite'  =>  '3',
+		'favorites' => '3, 11',
+		'union' => '3, 8, 11',
+		'union CF' => '3, 8, 11',
 	],
 ];
