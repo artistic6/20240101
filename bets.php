@@ -7,7 +7,6 @@ $raceDate = trim($argv[1]);
 $currentDir = __DIR__ . DIRECTORY_SEPARATOR . $raceDate;
 
 $allRacesOdds = include($currentDir . DIRECTORY_SEPARATOR . "odds.php");
-$history = include(__DIR__ . DIRECTORY_SEPARATOR . "winhistory.php");
 $threes = include(__DIR__ . DIRECTORY_SEPARATOR . "threes.php");
 $outFile = $currentDir . DIRECTORY_SEPARATOR . "$step.php";
 
@@ -19,10 +18,6 @@ $totalRaces = count($allRacesOdds);
 
 $outtext = "<?php\n\n";
 $outtext .= "return [\n";
-
-$totalBets = 0;
-$totalWinners = 0;
-$totalHistoric = 0;
 
 for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(!isset($allRacesOdds[$raceNumber])) continue;
@@ -38,7 +33,6 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $favorite = $runners[0];
     if(!in_array($favorite, $favorites)) $favorites[] = $favorite;
     sort($favorites);
-    $raceData1 = $history[$raceNumber][$favorite];
     $racetext = "";
    
     $racetext .= "\t'$raceNumber' => [\n";
