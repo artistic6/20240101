@@ -49,10 +49,10 @@ return [
 		/**
 		Race 5
 		*/
-		'Favorite'  =>  '1',
-		'favorites' => '1, 3',
-		'union' => '1, 3, 4, 7, 12',
-		'union current favorite' => '1, 3, 4, 7, 12',
+		'Favorite'  =>  '7',
+		'favorites' => '1, 3, 7',
+		'union' => '1, 3, 4, 5, 7, 8, 12',
+		'union current favorite' => '1, 4, 5, 7, 8, 12',
 	],
 	'6' => [
 		/**
@@ -66,10 +66,9 @@ return [
 		/**
 		Race 7
 		*/
-		'Favorite'  =>  '4',
+		'Favorite'  =>  '9',
 		'favorites' => '4, 9',
 		'union' => '1, 3, 4, 7, 8, 10',
-		'union current favorite' => '1, 3, 4, 7, 8, 10',
 	],
 	'8' => [
 		/**
