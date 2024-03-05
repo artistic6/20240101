@@ -59,7 +59,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
                     }
                     else $inter1 = array_intersect($inter1, $threeSet);
                     $bet = array_values(array_unique(array_merge($bet, $threeSet)));
-                    $racetext .= "\t\t'$index' => '" . $threeSet . "',\n";
+                    $racetext .= "\t\t'$index' => '" . implode(", ", $threeSet) . "',\n";
                 }
             }
         }
