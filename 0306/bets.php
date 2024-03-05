@@ -5,10 +5,12 @@ return [
 		/**
 		Race 1
 		*/
-		'Favorite'  =>  '10',
-		'favorites' => '10',
-		'union' => '1, 4, 5, 8, 10, 11',
-		'union current favorite' => '1, 4, 5, 8, 10, 11',
+		'Favorite'  =>  '8',
+		'favorites' => '8, 10',
+		'f8-f10' => '1, 5, 10',
+		'bet' => '1, 5, 8, 10',
+		'union' => '1, 3, 4, 5, 8, 10, 11, 12',
+		'union current favorite' => '1, 3, 5, 10, 12',
 	],
 	'2' => [
 		/**
@@ -41,8 +43,8 @@ return [
 		/**
 		Race 5
 		*/
-		'Favorite'  =>  '3',
-		'favorites' => '3',
+		'Favorite'  =>  '1',
+		'favorites' => '1, 3',
 		'union' => '1, 3, 4, 7, 12',
 		'union current favorite' => '1, 3, 4, 7, 12',
 	],
@@ -50,10 +52,9 @@ return [
 		/**
 		Race 6
 		*/
-		'Favorite'  =>  '1',
-		'favorites' => '1',
+		'Favorite'  =>  '5',
+		'favorites' => '1, 5',
 		'union' => '1, 3, 7, 9, 12',
-		'union current favorite' => '1, 3, 7, 9, 12',
 	],
 	'7' => [
 		/**
