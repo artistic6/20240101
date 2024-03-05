@@ -72,11 +72,6 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
             else $index = "f$horse-f$one";
             if(isset($threes[$raceNumber][$index])){
                     $threeSet = explode(", ", $threes[$raceNumber][$index]);
-                    if($firstSet2) {
-                        $firstSet2 = false;
-                        $inter2 = $threeSet;
-                    }
-                    else $inter2 = array_intersect($inter2, $threeSet); 
                     $union = array_values(array_unique(array_merge($union, $threeSet)));
                 }
         }
@@ -92,9 +87,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         sort($union);
         $racetext .= "\t\t'union' => '" . implode(", ", $union) . "',\n";
     }
-    if(isset($inter2) && !empty($inter2)){
-        $racetext .= "\t\t'inter2' => '" . implode(", ", $inter2) . "',\n";
-    }
+    
     $unionCF = [];
     foreach($runners as $horse){
             if($favorite == $horse) continue;
@@ -102,13 +95,21 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
               $index = "f$favorite-f$horse";
             else $index = "f$horse-f$favorite";
             if(isset($threes[$raceNumber][$index])){
-                    $threeSet = $threes[$raceNumber][$index];
-                    $unionCF = array_values(array_unique(array_merge($unionCF, explode(", ", $threeSet))));
+                    $threeSet = explode(", ", $threes[$raceNumber][$index]);
+                    if($firstSet2) {
+                        $firstSet2 = false;
+                        $inter2 = $threeSet;
+                    }
+                    else $inter2 = array_intersect($inter2, $threeSet); 
+                    $unionCF = array_values(array_unique(array_merge($unionCF, $threeSet)));
                 }
     }
     if(!empty($unionCF)){
         sort($unionCF);
         $racetext .= "\t\t'union CF' => '" . implode(", ", $unionCF) . "',\n";
+    }
+    if(isset($inter2) && !empty($inter2)){
+        $racetext .= "\t\t'inter2' => '" . implode(", ", $inter2) . "',\n";
     }
     $racetext .= "\t],\n";
     unset($oldFavorites);
