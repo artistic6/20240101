@@ -44,7 +44,9 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     
     $bet = [];
     $union = [];        
-    $firstSet1 = true;
+    $firstSet1 = true;    
+    $firstSet2 = true;
+    
     foreach($favorites as $one){
         foreach($favorites as $two){
             if($two > $one){
@@ -69,8 +71,13 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
               $index = "f$one-f$horse";
             else $index = "f$horse-f$one";
             if(isset($threes[$raceNumber][$index])){
-                    $threeSet = $threes[$raceNumber][$index];
-                    $union = array_values(array_unique(array_merge($union, explode(", ", $threeSet))));
+                    $threeSet = explode(", ", $threes[$raceNumber][$index]);
+                    if($firstSet2) {
+                        $firstSet2 = false;
+                        $inter2 = $threeSet;
+                    }
+                    else $inter2 = array_intersect($inter2, $threeSet); 
+                    $union = array_values(array_unique(array_merge($union, $threeSet)));
                 }
         }
     }
@@ -78,12 +85,15 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         sort($bet);
         $racetext .= "\t\t'bet' => '" . implode(", ", $bet) . "',\n";
     }
+    if(isset($inter1) && !empty($inter1)){
+        $racetext .= "\t\t'inter1' => '" . implode(", ", $inter1) . "',\n";
+    }
     if(!empty($union)){
         sort($union);
         $racetext .= "\t\t'union' => '" . implode(", ", $union) . "',\n";
     }
-    if(isset($inter1) && !empty($inter1)){
-        $racetext .= "\t\t'inter1' => '" . implode(", ", $inter1) . "',\n";
+    if(isset($inter2) && !empty($inter2)){
+        $racetext .= "\t\t'inter2' => '" . implode(", ", $inter2) . "',\n";
     }
     $unionCF = [];
     foreach($runners as $horse){
@@ -106,6 +116,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     unset($union);
     unset($bet);
     unset($inter1);
+    unset($inter2);
     $outtext .= $racetext;
 }
 $outtext .= "];\n";
