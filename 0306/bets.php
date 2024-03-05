@@ -27,12 +27,12 @@ return [
 		/**
 		Race 3
 		*/
-		'Favorite'  =>  '1',
-		'favorites' => '1, 5',
+		'Favorite'  =>  '3',
+		'favorites' => '1, 3, 5',
 		'f1-f5' => '5, 8, 10',
 		'bet' => '1, 5, 8, 10',
-		'union' => '5, 8, 10',
-		'union current favorite' => '5, 8, 10',
+		'union' => '1, 3, 5, 7, 8, 10, 12',
+		'union current favorite' => '1, 3, 7, 8, 12',
 	],
 	'4' => [
 		/**
