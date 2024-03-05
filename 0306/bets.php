@@ -58,8 +58,8 @@ return [
 		/**
 		Race 6
 		*/
-		'Favorite'  =>  '5',
-		'favorites' => '1, 5',
+		'Favorite'  =>  '9',
+		'favorites' => '1, 5, 9',
 		'union' => '1, 3, 7, 9, 12',
 	],
 	'7' => [
