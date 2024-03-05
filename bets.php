@@ -52,13 +52,13 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
                 if(isset($threes[$raceNumber][$index])){
                     $bet[] = $one;
                     $bet[] = $two;
-                    $threeSet = $threes[$raceNumber][$index];
+                    $threeSet = explode(", ", $threes[$raceNumber][$index]);
                     if($firstSet1) {
                         $firstSet1 = false;
                         $inter1 = $threeSet;
                     }
                     else $inter1 = array_intersect($inter1, $threeSet);
-                    $bet = array_values(array_unique(array_merge($bet, explode(", ", $threeSet))));
+                    $bet = array_values(array_unique(array_merge($bet, $threeSet)));
                     $racetext .= "\t\t'$index' => '" . $threeSet . "',\n";
                 }
             }
