@@ -22,7 +22,6 @@ return [
 		'Favorite'  =>  '4',
 		'favorites' => '4',
 		'union' => '4, 5, 7, 12',
-		'inter1' => '1, 5',
 		'union CF' => '4, 5, 7, 12',
 	],
 	'3' => [
@@ -56,7 +55,6 @@ return [
 		'Favorite'  =>  '7',
 		'favorites' => '1, 3, 7',
 		'union' => '1, 3, 4, 5, 7, 8, 12',
-		'inter1' => '4, 10, 12',
 		'union CF' => '1, 4, 5, 7, 8, 12',
 	],
 	'6' => [
@@ -66,7 +64,6 @@ return [
 		'Favorite'  =>  '9',
 		'favorites' => '1, 5, 9',
 		'union' => '1, 3, 7, 9, 12',
-		'inter1' => '4, 10, 12',
 	],
 	'7' => [
 		/**
@@ -75,7 +72,6 @@ return [
 		'Favorite'  =>  '4',
 		'favorites' => '4, 9',
 		'union' => '1, 3, 4, 7, 8, 10',
-		'inter1' => '4, 10, 12',
 		'union CF' => '1, 3, 4, 7, 8, 10',
 	],
 	'8' => [
@@ -85,7 +81,6 @@ return [
 		'Favorite'  =>  '3',
 		'favorites' => '3, 8',
 		'union' => '2, 3, 5, 6, 7, 12, 13',
-		'inter1' => '4, 10, 12',
 		'union CF' => '5, 6, 7, 12',
 	],
 	'9' => [
@@ -95,7 +90,6 @@ return [
 		'Favorite'  =>  '3',
 		'favorites' => '3, 11',
 		'union' => '3, 8, 11',
-		'inter1' => '4, 10, 12',
 		'union CF' => '3, 8, 11',
 	],
 ];
