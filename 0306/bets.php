@@ -72,9 +72,10 @@ return [
 		/**
 		Race 7
 		*/
-		'Favorite'  =>  '9',
+		'Favorite'  =>  '4',
 		'favorites' => '4, 9',
 		'union' => '1, 3, 4, 7, 8, 10',
+		'union CF' => '1, 3, 4, 7, 8, 10',
 	],
 	'8' => [
 		/**
