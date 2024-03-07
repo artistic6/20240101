@@ -40,74 +40,51 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $racetext .= "\t\tRace $raceNumber\n";
     $racetext .= "\t\t*/\n";
     $racetext .= "\t\t'Favorite'  =>  '$favorite',\n";   
-    $racetext .= "\t\t'favorites' => '" . implode(", ", $favorites) . "',\n";
-    
-    $bet = [];
-    $union = [];        
-    $firstSet1 = true;    
-    
+    $racetext .= "\t\t'favorites' => '" . implode(", ", $favorites) . "',\n";   
+    $place = [];
+    $surePlace = [];
     foreach($favorites as $one){
-        foreach($favorites as $two){
-            if($two > $one){
-                $index = "f$one-f$two";
+        $racetext .= "\t\t/*** Fav $one **/\n"; 
+        $union = []; 
+        $firstSet1 = true; 
+        foreach($runners as $two){
+            if($two !== $one){
+                if($one < $two) $index = "f$one-f$two";
+                else $index = "f$two-f$one";
                 if(isset($threes[$raceNumber][$index])){
-                    $bet[] = $one;
-                    $bet[] = $two;
                     $threeSet = explode(", ", $threes[$raceNumber][$index]);
+                    $racetext .= "\t\t'$index' => '" . implode(", ", $threeSet) . "',\n";
                     if($firstSet1) {
                         $firstSet1 = false;
-                        $inter1 = $threeSet;
+                        $union = $threeSet;
                     }
-                    else $inter1 = array_intersect($inter1, $threeSet);
-                    $bet = array_values(array_unique(array_merge($bet, $threeSet)));
-                    $racetext .= "\t\t'$index' => '" . implode(", ", $threeSet) . "',\n";
+                    else {
+                        $union = array_values(array_unique(array_merge($union, $threeSet)));
+                    }
                 }
             }
         }
-        foreach($runners as $horse){
-            if($one == $horse) continue;
-            if($one < $horse) 
-              $index = "f$one-f$horse";
-            else $index = "f$horse-f$one";
-            if(isset($threes[$raceNumber][$index])){
-                    $threeSet = explode(", ", $threes[$raceNumber][$index]);
-                    $union = array_values(array_unique(array_merge($union, $threeSet)));
-                }
-        }
-    }
-    if(!empty($bet)){
-        sort($bet);
-        $racetext .= "\t\t'bet' => '" . implode(", ", $bet) . "',\n";
-    }
-    if(isset($inter1) && !empty($inter1)){
-        $racetext .= "\t\t'inter1' => '" . implode(", ", $inter1) . "',\n";
-    }
-    if(!empty($union)){
         sort($union);
-        $racetext .= "\t\t'union' => '" . implode(", ", $union) . "',\n";
+        if(!empty($union)){
+            sort($union);
+            $racetext .= "\t\t'union $one' => '" . implode(", ", $union) . "',\n";
+            $inter = array_intersect($favorites, $union);
+            if(in_array($one, $inter)){
+                $surePlace[] = $one;
+            }
+            $place = array_values(array_unique(array_merge($place, $inter)));
+        } 
+    }
+    if(!empty($surePlace)){
+        $racetext .= "\t\t'Sure Place' => '" . implode(", ", $surePlace) . "',\n";
+    }
+    if(!empty($place)){
+        $racetext .= "\t\t'Place' => '" . implode(", ", $place) . "',\n";
     }
     
-    $unionCF = [];
-    foreach($runners as $horse){
-            if($favorite == $horse) continue;
-            if($favorite < $horse) 
-              $index = "f$favorite-f$horse";
-            else $index = "f$horse-f$favorite";
-            if(isset($threes[$raceNumber][$index])){
-                    $threeSet = explode(", ", $threes[$raceNumber][$index]);
-                    $unionCF = array_values(array_unique(array_merge($unionCF, $threeSet)));
-                }
-    }
-    if(!empty($unionCF)){
-        sort($unionCF);
-        $racetext .= "\t\t'union CF' => '" . implode(", ", $unionCF) . "',\n";
-    }
     $racetext .= "\t],\n";
     unset($oldFavorites);
     unset($favorites);
-    unset($union);
-    unset($bet);
-    unset($inter1);
     $outtext .= $racetext;
 }
 $outtext .= "];\n";
