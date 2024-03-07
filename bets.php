@@ -42,7 +42,6 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $racetext .= "\t\t'Favorite'  =>  '$favorite',\n";   
     $racetext .= "\t\t'favorites' => '" . implode(", ", $favorites) . "',\n";   
     $place = [];
-    $surePlace = [];
     foreach($favorites as $one){
         $racetext .= "\t\t/*** Fav $one **/\n"; 
         $union = []; 
@@ -70,16 +69,12 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
             $racetext .= "\t\t'union $one' => '" . implode(", ", $union) . "',\n";
             $inter = array_intersect($favorites, $union);
             if(in_array($one, $inter)){
-                $surePlace[] = $one;
+                $place[] = $one;
             }
-            $place = array_values(array_unique(array_merge($place, $inter)));
         } 
     }
-    if(!empty($surePlace)){
-        $racetext .= "\t\t'Sure Place' => '" . implode(", ", $surePlace) . "',\n";
-    }
     if(!empty($place)){
-        $racetext .= "\t\t'Place' => '" . implode(", ", $place) . "',\n";
+        $racetext .= "\t\t'Sure Place' => '" . implode(", ", $place) . "',\n";
     }
     
     $racetext .= "\t],\n";
