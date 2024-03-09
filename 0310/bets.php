@@ -5,7 +5,7 @@ return [
 		/**
 		Race 1
 		*/
-		'Favorite'  =>  '11',
+		'Favorite'  =>  '6',
 		'favorites' => '6, 11',
 		/*** Fav 6 **/
 		'f3-f6' => '1, 6, 7',
