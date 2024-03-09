@@ -33,6 +33,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $favorite = $runners[0];
     if(!in_array($favorite, $favorites)) $favorites[] = $favorite;
     sort($favorites);
+    sort($runners);
     $racetext = "";
    
     $racetext .= "\t'$raceNumber' => [\n";
