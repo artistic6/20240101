@@ -5,7 +5,6 @@ return [
 		/**
 		Race 1
 		*/
-		'Favorite'  =>  '1',
 		'favorites' => '1, 6, 11',
 		/*** Fav 1 **/
 		'f1-f3' => '1, 5, 7',
@@ -26,7 +25,6 @@ return [
 		/**
 		Race 2
 		*/
-		'Favorite'  =>  '2',
 		'favorites' => '2',
 		/*** Fav 2 **/
 		'f2-f4' => '5, 7, 12',
@@ -38,7 +36,6 @@ return [
 		/**
 		Race 3
 		*/
-		'Favorite'  =>  '2',
 		'favorites' => '2, 3',
 		/*** Fav 2 **/
 		'f2-f3' => '1, 8, 12',
@@ -58,7 +55,6 @@ return [
 		/**
 		Race 4
 		*/
-		'Favorite'  =>  '5',
 		'favorites' => '5',
 		/*** Fav 5 **/
 		'f1-f5' => '2, 5, 10',
@@ -69,7 +65,6 @@ return [
 		/**
 		Race 5
 		*/
-		'Favorite'  =>  '1',
 		'favorites' => '1',
 		/*** Fav 1 **/
 		'f1-f5' => '1, 3, 12',
@@ -82,7 +77,6 @@ return [
 		/**
 		Race 6
 		*/
-		'Favorite'  =>  '7',
 		'favorites' => '7',
 		/*** Fav 7 **/
 		'f4-f7' => '3, 6, 13',
@@ -94,7 +88,6 @@ return [
 		/**
 		Race 7
 		*/
-		'Favorite'  =>  '1',
 		'favorites' => '1',
 		/*** Fav 1 **/
 		'f1-f3' => '1, 2, 9',
@@ -106,7 +99,6 @@ return [
 		/**
 		Race 8
 		*/
-		'Favorite'  =>  '4',
 		'favorites' => '4',
 		/*** Fav 4 **/
 		'f1-f4' => '1, 6, 7',
@@ -121,7 +113,6 @@ return [
 		/**
 		Race 9
 		*/
-		'Favorite'  =>  '11',
 		'favorites' => '11',
 		/*** Fav 11 **/
 	],
@@ -129,7 +120,6 @@ return [
 		/**
 		Race 10
 		*/
-		'Favorite'  =>  '11',
 		'favorites' => '5, 11',
 		/*** Fav 5 **/
 		/*** Fav 11 **/
