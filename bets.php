@@ -40,7 +40,6 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     $racetext .= "\t\t/**\n";
     $racetext .= "\t\tRace $raceNumber\n";
     $racetext .= "\t\t*/\n";
-    $racetext .= "\t\t'Favorite'  =>  '$favorite',\n";   
     $racetext .= "\t\t'favorites' => '" . implode(", ", $favorites) . "',\n";   
     $place = [];
     foreach($favorites as $one){
