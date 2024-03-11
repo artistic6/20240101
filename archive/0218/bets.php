@@ -37,7 +37,6 @@ return [
 		'f2-f4' => '5, 7, 12',
 		'union 4' => '5, 7, 12',
 		'union all' => '5, 7, 12',//count: 3
-		'inter' => '5, 7, 12',
 	],
 	'3' => [
 		/**
@@ -52,7 +51,6 @@ return [
 		'union 7' => '3, 6, 7, 11, 12',
 		'union all' => '3, 6, 7, 11, 12',//count: 5
 		'Sure Place' => '7',
-		'inter' => '3, 6, 7, 11, 12',
 	],
 	'4' => [
 		/**
@@ -160,7 +158,6 @@ return [
 		/*** Fav 7 **/
 		'union all' => '4, 6, 7',//count: 3
 		'Sure Place' => '4',
-		'inter' => '4, 6, 7',
 	],
 	'10' => [
 		/**
@@ -174,6 +171,5 @@ return [
 		/*** Fav 12 **/
 		'union all' => '3, 4, 11',//count: 3
 		'Sure Place' => '4',
-		'inter' => '3, 4, 11',
 	],
 ];

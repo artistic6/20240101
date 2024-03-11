@@ -81,7 +81,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(!empty($place)){
         $racetext .= "\t\t'Sure Place' => '" . implode(", ", $place) . "',\n";
     }
-    if(!empty($unions)){
+    if(count($unions) > 1){
         $interu = $unions[0];
         foreach($unions as $set){
             $interu = array_intersect($interu, $set);

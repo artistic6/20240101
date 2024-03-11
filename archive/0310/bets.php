@@ -71,7 +71,6 @@ return [
 		'union 5' => '2, 5, 10',
 		'union all' => '2, 5, 10',//count: 3
 		'Sure Place' => '5',
-		'inter' => '2, 5, 10',
 	],
 	'5' => [
 		/**
@@ -85,7 +84,6 @@ return [
 		'union 1' => '1, 3, 4, 7, 12',
 		'union all' => '1, 3, 4, 7, 12',//count: 5
 		'Sure Place' => '1',
-		'inter' => '1, 3, 4, 7, 12',
 	],
 	'6' => [
 		/**
