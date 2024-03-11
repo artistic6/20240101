@@ -21,6 +21,7 @@ $outtext .= "return [\n";
 
 for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     if(!isset($allRacesOdds[$raceNumber])) continue;
+    $unionAll = [];
     if(isset($oldData)){
         if(isset($oldData[$raceNumber]['favorites'])) $oldFavorites = explode(", ", $oldData[$raceNumber]['favorites']);
     }
@@ -63,7 +64,6 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
                 }
             }
         }
-        sort($union);
         if(!empty($union)){
             sort($union);
             $racetext .= "\t\t'union $one' => '" . implode(", ", $union) . "',\n";
@@ -71,8 +71,11 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
             if(in_array($one, $inter)){
                 $place[] = $one;
             }
+            $unionAll = array_values(array_unique(array_merge($unionAll, $union)));
         } 
     }
+    sort($unionAll);
+    $racetext .= "\t\t'union all' => '" . implode(", ", $unionAll) . "',//count: " . count($unionAll) . "\n";
     if(!empty($place)){
         $racetext .= "\t\t'Sure Place' => '" . implode(", ", $place) . "',\n";
     }
