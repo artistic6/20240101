@@ -87,8 +87,6 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
             $interu = array_intersect($interu, $set);
         }
         $racetext .= "\t\t'WP' => '" . implode(", ", $interu) . "',\n";
-        $sure = array_intersect($interu, $favorites);
-        $racetext .= "\t\t'Sure bet' => '" . implode(", ", $sure) . "',\n";
     }
     $racetext .= "\t],\n";
     unset($oldFavorites);
