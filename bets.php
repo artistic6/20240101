@@ -79,14 +79,16 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
     sort($unionAll);
     $racetext .= "\t\t'union all' => '" . implode(", ", $unionAll) . "',//count: " . count($unionAll) . "\n";
     if(!empty($place)){
-        $racetext .= "\t\t'Sure Place' => '" . implode(", ", $place) . "',\n";
+        $racetext .= "\t\t'Place' => '" . implode(", ", $place) . "',\n";
     }
     if(count($unions) > 1){
         $interu = $unions[0];
         foreach($unions as $set){
             $interu = array_intersect($interu, $set);
         }
-        $racetext .= "\t\t'inter' => '" . implode(", ", $interu) . "',\n";
+        $racetext .= "\t\t'WP' => '" . implode(", ", $interu) . "',\n";
+        $sure = array_intersect($interu, $favorites);
+        $racetext .= "\t\t'Sure bet' => '" . implode(", ", $sure) . "',\n";
     }
     $racetext .= "\t],\n";
     unset($oldFavorites);
