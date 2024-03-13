@@ -88,7 +88,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         }
         $racetext .= "\t\t'WP' => '" . implode(", ", $interu) . "',\n";
         $win = array_values(array_unique(array_merge($favorites, $interu)));
-        $miss = array_diff($runners, $win);
+        $miss = array_diff($runners, $unionAll);
         $win = array_values(array_unique(array_merge($win, $miss)));
         sort($win);
         $racetext .= "\t\t'win' => '" . implode(", ", $win) . "',\n";
