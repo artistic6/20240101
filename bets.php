@@ -90,6 +90,8 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         $win = array_values(array_unique(array_merge($win, $miss)));
         sort($win);
         $racetext .= "\t\t'win' => '" . implode(", ", $win) . "',\n";
+        $shit = array_diff($runners, $win);
+        $racetext .= "\t\t'shit' => '" . implode(", ", $shit) . "',\n";
     }
     $racetext .= "\t],\n";
     unset($oldFavorites);
