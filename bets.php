@@ -46,13 +46,15 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         if(isset($history[$raceNumber][$one]['win'])){
             $winners = $history[$raceNumber][$one]['win'];
             if(count($winners) > 6) continue;
-            
             $sets[$one] = $winners;
         } 
     }
     if(count($sets) === 1){
         foreach($sets as $f => $s){
             $racetext .= "\t\t'Fav $f' => '" . implode(", ", $s) . "',//count: " . count($s) . "\n";
+            if(count($s) == 6 && in_array($f, $s)){
+                $racetext .= "\t\t'WP' => '" . $f . "',\n"; 
+            }
         }
     }
     $racetext .= "\t],\n";
