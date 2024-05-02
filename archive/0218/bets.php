@@ -12,25 +12,30 @@ return [
 		Race 2
 		*/
 		'favorites' => '4',
-		'Fav 4(win)' => '3, 4, 5, 7, 12',//count: 5
+		'inter' => '4',
 	],
 	'3' => [
 		/**
 		Race 3
 		*/
 		'favorites' => '7',
+		'inter' => '7',
 	],
 	'4' => [
 		/**
 		Race 4
 		*/
 		'favorites' => '1, 8',
+		'inter' => '1',
 	],
 	'5' => [
 		/**
 		Race 5
 		*/
 		'favorites' => '3, 7',
+		'inter' => '7',
+		'potential inter(fav 1)' => '1, 7',
+		'potential inter(fav 4)' => '4, 7',
 	],
 	'6' => [
 		/**
@@ -49,7 +54,6 @@ return [
 		Race 8
 		*/
 		'favorites' => '9, 11',
-		'Fav 9(win)' => '2, 3, 4, 5, 10',//count: 5
 	],
 	'9' => [
 		/**
@@ -63,5 +67,4 @@ return [
 		*/
 		'favorites' => '2, 4, 12',
 	],
-		//'shit' => '4, 9',
 ];
