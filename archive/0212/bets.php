@@ -20,6 +20,7 @@ return [
 		*/
 		'favorites' => '3, 6',
 		'inter' => '3',
+		'potential inter(fav 1)' => '1, 3',
 		'potential inter(fav 4)' => '3, 4',
 	],
 	'4' => [
@@ -27,7 +28,10 @@ return [
 		Race 4
 		*/
 		'favorites' => '1, 2, 10',
-		'inter' => '10',
+		'inter' => '1, 10',
+		'win($20)' => '1, 2, 10',
+		'win($20)' => '2, 10',
+		'qin/trio($10)' => '1, 2, 10',
 	],
 	'5' => [
 		/**
@@ -43,6 +47,9 @@ return [
 		'inter' => '3, 7',
 		'potential inter(fav 1)' => '1, 3, 7',
 		'potential inter(fav 4)' => '3, 7',
+		'potential inter(fav 6)' => '6, 7',
+		'potential inter(fav 9)' => '7, 9',
+		'potential inter(fav 10)' => '3, 7',
 	],
 	'7' => [
 		/**
@@ -63,6 +70,7 @@ return [
 		Race 9
 		*/
 		'favorites' => '1, 8, 12',
+		'inter' => '12',
 	],
 	'10' => [
 		/**

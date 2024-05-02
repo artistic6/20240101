@@ -6,6 +6,7 @@ return [
 		Race 1
 		*/
 		'favorites' => '2, 3, 4, 6',
+		'inter' => '2',
 	],
 	'2' => [
 		/**
@@ -13,6 +14,8 @@ return [
 		*/
 		'favorites' => '3, 4',
 		'inter' => '4',
+		'potential inter(fav 5)' => '4, 5',
+		'potential inter(fav 7)' => '4, 7',
 	],
 	'3' => [
 		/**
@@ -25,6 +28,10 @@ return [
 		Race 4
 		*/
 		'favorites' => '1, 2, 3',
+		'inter' => '1, 3',
+		'win($20)' => '1, 2, 3',
+		'win($20)' => '2, 3',
+		'qin/trio($10)' => '1, 2, 3',
 	],
 	'5' => [
 		/**
@@ -39,6 +46,7 @@ return [
 		'favorites' => '1, 3',
 		'inter' => '1, 3',
 		'potential inter(fav 7)' => '1, 3, 7',
+		'potential inter(fav 9)' => '1, 9',
 	],
 	'7' => [
 		/**
@@ -46,6 +54,7 @@ return [
 		*/
 		'favorites' => '3, 4',
 		'inter' => '3',
+		'potential inter(fav 1)' => '1, 3',
 		'potential inter(fav 2)' => '2, 3',
 		'potential inter(fav 10)' => '3, 10',
 	],
@@ -61,6 +70,9 @@ return [
 		Race 9
 		*/
 		'favorites' => '2, 4, 5, 6',
-		'inter' => '4',
+		'inter' => '4, 5',
+		'win($20)' => '2, 4, 5, 6',
+		'win($20)' => '4, 5',
+		'qin/trio($10)' => '2, 4, 5, 6',
 	],
 ];

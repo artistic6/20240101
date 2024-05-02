@@ -18,13 +18,18 @@ return [
 		Race 3
 		*/
 		'favorites' => '1, 7',
+		'inter' => '1',
+		'potential inter(fav 3)' => '1, 3',
 	],
 	'4' => [
 		/**
 		Race 4
 		*/
 		'favorites' => '1, 4, 11',
-		'inter' => '11',
+		'inter' => '1, 11',
+		'win($20)' => '1, 4, 11',
+		'win($20)' => '4, 11',
+		'qin/trio($10)' => '1, 4, 11',
 	],
 	'5' => [
 		/**
