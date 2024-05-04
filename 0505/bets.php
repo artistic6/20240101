@@ -12,9 +12,7 @@ return [
 		/**
 		Race 2
 		*/
-		'favorites' => '1, 7',
-		'inter' => '7',
-		'potential inter(fav 2)' => '2, 7',
+		'favorites' => '1, 7, 9',
 	],
 	'3' => [
 		/**
