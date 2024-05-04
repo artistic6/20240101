@@ -68,11 +68,8 @@ return [
 		/**
 		Race 9
 		*/
-		'favorites' => '2, 3, 6',
-		'inter' => '2, 3',
-		'win($20)' => '2, 3, 6',
-		'win($20)' => '3, 6',
-		'qin/trio($10)' => '2, 3, 6',
+		'favorites' => '2, 3, 6, 8',
+		'inter' => '3',
 	],
 	'10' => [
 		/**
@@ -85,6 +82,6 @@ return [
 		/**
 		Race 11
 		*/
-		'favorites' => '8',
+		'favorites' => '8, 9',
 	],
 ];
