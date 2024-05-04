@@ -5,8 +5,12 @@ return [
 		/**
 		Race 1
 		*/
-		'favorites' => '5',
-		'inter' => '5',
+		'favorites' => '5, 8',
+		'inter' => '5, 8',
+		'potential inter(fav 1)' => '1, 5, 8',
+		'potential inter(fav 2)' => '2, 5, 8',
+		'potential inter(fav 9)' => '5, 8',
+		'potential inter(fav 10)' => '5, 8',
 	],
 	'2' => [
 		/**
@@ -52,7 +56,7 @@ return [
 		/**
 		Race 7
 		*/
-		'favorites' => '4, 6, 8',
+		'favorites' => '1, 4, 6, 8',
 	],
 	'8' => [
 		/**
