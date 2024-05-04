@@ -33,8 +33,12 @@ return [
 		/**
 		Race 5
 		*/
-		'favorites' => '5',
-		'inter' => '5',
+		'favorites' => '5, 12',
+		'inter' => '5, 12',
+		'potential inter(fav 1)' => '5, 12',
+		'potential inter(fav 3)' => '5, 12',
+		'potential inter(fav 7)' => '5, 12',
+		'potential inter(fav 8)' => '5, 12',
 	],
 	'6' => [
 		/**
