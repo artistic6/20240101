@@ -74,28 +74,6 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
             }
         }
     }
-    
-    if(count($favorites) > 3){
-        $winFavorites = false;
-        foreach($favorites as $one){
-            $win1 = array_intersect($history[$raceNumber][$one]["win"], $runners);
-            foreach($favorites as $two){
-                if($two > $one){
-                    $win2 = array_intersect($history[$raceNumber][$two]["win"], $runners);
-                    foreach($favorites as $three){
-                        if($three > $two){
-                            $win3 = array_intersect($history[$raceNumber][$three]["win"], $runners);
-                            $X = array_intersect($win1, $win2, $win3, [$one, $two, $three]);
-                            if(count($X) >= 2){
-                                $winFavorites = true; 
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if($winFavorites) $racetext .= "\t\t'win' => '" . implode(", ", $favorites) . "',\n"; 
-    }
     $racetext .= "\t],\n";
     unset($oldFavorites);
     unset($favorites);
