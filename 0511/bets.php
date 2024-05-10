@@ -66,12 +66,7 @@ return [
 		/**
 		Race 9
 		*/
-		'favorites' => '8',
-		'potential inter(fav 3)' => '3, 8',
-		'potential inter(fav 5)' => '5, 8',
-		'union' => '3, 8, 5',
-		'inter' => '8',
-		'history(8)' => '3, 5, 8, 12',
+		'favorites' => '4, 8',
 	],
 	'10' => [
 		/**
