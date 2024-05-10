@@ -52,63 +52,36 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         }
         else $inter = array_intersect($inter, $candidates);
     }
-    $copyInter = $inter;
-    $inter = array_intersect($favorites, $inter);
-    if(!empty($inter)) {
-        if(count($inter) >= 2 && count($favorites) >= 3){
-            $racetext .= "\t\t'win($20)' => '" . implode(", ", $favorites) . "',\n"; 
-            $racetext .= "\t\t'win($20)' => '" . implode(", ", array_slice($favorites, 1, 2)) . "',\n"; 
-            $racetext .= "\t\t'qin/trio($10)' => '" . implode(", ", $favorites) . "',\n"; 
-        }
+    $interF = array_intersect($favorites, $inter);
+    if(count($interF) >= 2 && count($favorites) >= 3){
+        $racetext .= "\t\t'win($20)' => '" . implode(", ", $favorites) . "',\n"; 
+        $racetext .= "\t\t'win($20)' => '" . implode(", ", array_slice($favorites, 1, 2)) . "',\n"; 
+        $racetext .= "\t\t'qin/trio($10)' => '" . implode(", ", $favorites) . "',\n"; 
     }
-    $unions1 = [];
-    $unions2 = [];
-    if(count($favorites) >= 2){
-        foreach($favorites as $one){
-            $union11 = [];
-            $union12 = [];
-            $win1 = array_intersect($history[$raceNumber][$one]["win"], $runners);
-            foreach($favorites as $two){
-                if($two > $one){
-                    $union2 = [];
-                    $union3 = [];
-                    $win2 = array_intersect($history[$raceNumber][$two]["win"], $runners);
-                    $others = array_diff($runners, [$one, $two]);
-                    foreach($runners as $three){
-                        $win3 = array_intersect($history[$raceNumber][$three]["win"], $runners);
-                        $X = array_intersect($win1, $win2, $win3, [$one, $two, $three]);
-                        if(count($X) >= 2) $union2 = array_values(array_unique(array_merge($union2, $X)));
-                        $union3 = array_values(array_unique(array_merge($union3, $X)));
-                    }
-                    $union11 = array_values(array_unique(array_merge($union11, $union2)));
-                    $union12 = array_values(array_unique(array_merge($union12, $union3)));
+    else{
+        $potentialFavorites = array_diff($runners, $favorites);
+        $union = [];
+        foreach($potentialFavorites as $potentialFavorite){
+            $potentialCandidates = array_intersect($history[$raceNumber][$potentialFavorite]["win"], $runners);
+            $potentialInter = array_intersect($inter, $potentialCandidates);
+            $newFavs = array_merge($favorites, [$potentialFavorite]);
+            $potentialInter = array_intersect($potentialInter, $newFavs);
+            if(count($potentialInter) >= 2){
+                $racetext .= "\t\t'potential inter(fav $potentialFavorite)' => '" . implode(", ", $potentialInter) . "',\n"; 
+                $union = array_values(array_unique(array_merge($union, $potentialInter)));
+            }
+        }
+        if(!empty($union)) $racetext .= "\t\t'union' => '" . implode(", ", $union) . "',\n"; 
+        $X = array_intersect($union, $favorites);
+        if(!empty($X)) {
+            $racetext .= "\t\t'inter' => '" . implode(", ", $X) . "',\n"; 
+            foreach($X as $ix){
+                $racetext .= "\t\t'history($ix)' => '" . implode(", ", $history[$raceNumber][$ix]["win"]) . "',\n";
+                if(count($favorites) > 1 && count(array_intersect($history[$raceNumber][$ix]["win"], $favorites)) === 1){
+                    $racetext .= "\t\t'Place 1st or 2nd' => '" . implode(", ", $favorites) . "',\n";
                 }
             }
-            if(count($union11) >= 3) $unions1[$one] = $union11;
-            if(count($union12) >= 3) $unions2[$one] = $union12;
         }
-        $set1 = true;
-        $IX1 = [];
-        foreach($unions1 as $KK => $FF){
-            if($set1){
-                $IX1 = $FF;
-                $set1 = false;
-            }
-            else $IX1 = array_intersect($IX1, $FF);
-        }
-        sort($IX1);
-        if(!empty($IX1)) $racetext .= "\t\t'inter 1' => '" . implode(", ", $IX1) . "',\n"; 
-        $set1 = true;
-        $IX2 = [];
-        foreach($unions2 as $KK => $FF){
-            if($set1){
-                $IX2 = $FF;
-                $set1 = false;
-            }
-            else $IX2 = array_intersect($IX2, $FF);
-        }
-        sort($IX2);
-        if(!empty($IX2)) $racetext .= "\t\t'inter 2' => '" . implode(", ", $IX2) . "',\n"; 
     }
     $racetext .= "\t],\n";
     unset($oldFavorites);
