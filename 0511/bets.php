@@ -45,11 +45,12 @@ return [
 		/**
 		Race 7
 		*/
-		'favorites' => '2',
-		'potential inter(fav 7)' => '2, 7',
+		'favorites' => '2, 7',
+		'potential inter(fav 5)' => '2, 7',
 		'union' => '2, 7',
-		'inter' => '2',
+		'inter' => '2, 7',
 		'history(2)' => '2, 5, 7, 9',
+		'history(7)' => '2, 6, 7, 8, 11',
 	],
 	'8' => [
 		/**
