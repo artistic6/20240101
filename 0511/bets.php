@@ -69,6 +69,6 @@ return [
 		/**
 		Race 10
 		*/
-		'favorites' => '10',
+		'favorites' => '2, 10',
 	],
 ];
